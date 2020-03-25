@@ -43,9 +43,11 @@ const App = () => {
             {shinkyo_title.map(x => x.char).join('')}
           </code>
         </h2>
-        <p>
-          {edittedText.map((x, index) => <code key={index} className={x.clicked} onClick={() => handleEdittedText(index)}>{x.char}</code>)}
-        </p>
+        <div>
+          <p>
+            {edittedText.map((x, index) => <span key={index} className={x.clicked} onClick={() => handleEdittedText(index)}>{x.char}</span>)}
+          </p>
+        </div>
         {/* <p>
           {correctText.map((x, index) => <code key={index} >{x.char}</code>)}
         </p> */}
