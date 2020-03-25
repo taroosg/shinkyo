@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+.clicked{
+  background:orange;
+  color: #282c34;
+}

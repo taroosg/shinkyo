@@ -2,51 +2,61 @@
   {
     "char": "摩",
     "index": 0,
-    "editted": false
+    "editted": false,
+    "clicked": ""
   },
   {
     "char": "訶",
     "index": 1,
-    "editted": false
+    "editted": false,
+    "clicked": ""
   },
   {
     "char": "般",
     "index": 2,
-    "editted": false
+    "editted": false,
+    "clicked": ""
   },
   {
     "char": "若",
     "index": 3,
-    "editted": false
+    "editted": false,
+    "clicked": ""
   },
   {
     "char": "波",
     "index": 4,
-    "editted": false
+    "editted": false,
+    "clicked": ""
   },
   {
     "char": "羅",
     "index": 5,
-    "editted": false
+    "editted": false,
+    "clicked": ""
   },
   {
     "char": "蜜",
     "index": 6,
-    "editted": false
+    "editted": false,
+    "clicked": ""
   },
   {
     "char": "多",
     "index": 7,
-    "editted": false
+    "editted": false,
+    "clicked": ""
   },
   {
     "char": "心",
     "index": 8,
-    "editted": false
+    "editted": false,
+    "clicked": ""
   },
   {
     "char": "経",
     "index": 9,
-    "editted": false
+    "editted": false,
+    "clicked": ""
   }
 ]
