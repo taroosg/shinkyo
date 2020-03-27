@@ -9,7 +9,6 @@ const App = () => {
   // 正しい般若心経
   const correctText = shinkyo_text;
   // 漢字のみ摘出した般若心経
-  // const onlyText = correctText.filter(x => !(x.char === "・" || x.char === "、" || x.char === "。"));
   const onlyText = correctText.filter(x => x.char.match(/[^・、。]/));
   // 適当におかしくした般若心経
   const edittedShinkyo = correctText.map((x, index) => {
