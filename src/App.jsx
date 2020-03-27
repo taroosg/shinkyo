@@ -9,10 +9,11 @@ const App = () => {
   // 正しい般若心経
   const correctText = shinkyo_text;
   // 漢字のみ摘出した般若心経
-  const onlyText = correctText.filter(x => !(x.char === "・" || x.char === "、" || x.char === "。"));
+  // const onlyText = correctText.filter(x => !(x.char === "・" || x.char === "、" || x.char === "。"));
+  const onlyText = correctText.filter(x => x.char.match(/[^・、。]/));
   // 適当におかしくした般若心経
   const edittedShinkyo = correctText.map((x, index) => {
-    return !(x.char === "・" || x.char === "、" || x.char === "。")
+    return x.char.match(/[^・、。]/)
       ? !(Math.random() > 0.90)
         ? x
         : {
@@ -36,7 +37,15 @@ const App = () => {
   // クリック時にクリックした箇所のedittedパラメータを切り替えてstateに入れる関数
   const handleEdittedText = index => {
     const nowArray = [...edittedText]
-    const newObj = { ...nowArray[index], editted: nowArray[index].editted ? false : true, clicked: nowArray[index].clicked === "" ? "clicked" : "" };
+    const newObj = {
+      ...nowArray[index],
+      editted: nowArray[index].editted
+        ? false
+        : true,
+      clicked: nowArray[index].clicked === ""
+        ? "clicked"
+        : ""
+    };
     nowArray[index] = newObj;
     setEdittedText(nowArray);
   }
