@@ -12,8 +12,9 @@ const App = () => {
   const onlyText = correctText.filter(x => x.char.match(/[^・、。]/));
   // 適当におかしくした般若心経
   const edittedShinkyo = correctText.map((x, index) => {
-    return x.char.match(/[^・、。]/)
-      ? !(Math.random() > 0.90)
+    return x.char.match(/[・、。]/)
+      ? x
+      : Math.random() < 0.90
         ? x
         : {
           char: onlyText[~~(Math.random() * (onlyText.length - 1))].char,
@@ -21,18 +22,17 @@ const App = () => {
           editted: true,
           clicked: "",
         }
-      : x
-  })
+  });
 
   // 精度計算
   // edittedパラメータがfalseのもののみ抽出した配列の長さ（=正しい般若心経の文字数）
   const isFalseArrayLength = textArray => textArray.filter(x => !x.editted).length;
   // 上記関数から全体のどのくらい正しい般若心経になっているかのチェック
-  const culcTextAccuracy = (edittedText, correctText) => (isFalseArrayLength(edittedText) * 100) / isFalseArrayLength(correctText)
+  const culcTextAccuracy = (edittedText, correctText) => (isFalseArrayLength(edittedText) * 100) / isFalseArrayLength(correctText);
 
   // クリック管理
   // 現在の般若心経管理
-  const [edittedText, setEdittedText] = useState(edittedShinkyo)
+  const [edittedText, setEdittedText] = useState(edittedShinkyo);
   // クリック時にクリックした箇所のedittedパラメータを切り替えてstateに入れる関数
   const handleEdittedText = index => {
     const nowArray = [...edittedText]
@@ -47,7 +47,7 @@ const App = () => {
     };
     nowArray[index] = newObj;
     setEdittedText(nowArray);
-  }
+  };
 
   return (
     <div className="App">
@@ -62,7 +62,15 @@ const App = () => {
         </h2>
         <div>
           <p>
-            {edittedText.map((x, index) => <code key={index} className={x.clicked} onClick={() => handleEdittedText(index)}>{x.char}</code>)}
+            {
+              edittedText.map((x, index) =>
+                <code
+                  key={index}
+                  className={x.clicked}
+                  onClick={() => handleEdittedText(index)}>
+                  {x.char}
+                </code>)
+            }
           </p>
         </div>
         {/* <p>
@@ -71,6 +79,6 @@ const App = () => {
       </main>
     </div >
   );
-}
+};
 
 export default App;
