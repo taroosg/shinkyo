@@ -12,12 +12,15 @@ const App = () => {
   const onlyText = correctText.filter(x => x.char.match(/[^・、。]/));
   // 適当におかしくした般若心経
   const edittedShinkyo = correctText.map((x, index) => {
-    return x.char.match(/[・、。]/)
+    const randomChar = onlyText[~~(Math.random() * (onlyText.length - 1))].char;
+    const regexp = new RegExp(`[${randomChar}・、。]`, 'g');
+    // return x.char.match(/[・、。]/)
+    return x.char.match(regexp)
       ? x
-      : Math.random() < 0.90
+      : Math.random() < 0.9
         ? x
         : {
-          char: onlyText[~~(Math.random() * (onlyText.length - 1))].char,
+          char: randomChar,
           index: index,
           editted: true,
           clicked: "",
