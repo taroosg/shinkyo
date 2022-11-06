@@ -4,7 +4,7 @@
 
 ## DEMO
 
-- [https://vercel.com/taroosg/shinkyo](https://vercel.com/taroosg/shinkyo)
+- [https://shinkyo.vercel.app/](https://shinkyo.vercel.app/)
 
 ## 紹介
 
